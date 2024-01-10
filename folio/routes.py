@@ -54,6 +54,6 @@ def register():
 @app.route('/logout')
 def logout():
     session.pop('loggedin',None)
-    session.pop('username',None)
+    session.pop('email',None)
     
     return redirect('/login')
