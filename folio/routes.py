@@ -6,7 +6,10 @@ databaseObj = Database()
 
 @app.route('/home')
 def home():
-    return render_template('home.html',email=session['email'])
+    if 'email' in session:
+        return render_template('home.html', email=session['email'])
+    else:
+        return redirect('/login')
 
 @app.route('/login',methods=['GET','POST'])
 def login():

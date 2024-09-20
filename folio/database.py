@@ -2,8 +2,7 @@ import mysql.connector
 
 class Database:
     def __init__(self):
-        
-        self.db = mysql.connector.connect(host="localhost",user="sahil",password="P@ssw0rd123",database="login")
+        self.db = mysql.connector.connect(host="localhost",user="root",password="9816112768Itsme$",database="login")
         self.cursor = self.db.cursor()
         
         
