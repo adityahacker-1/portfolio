@@ -6,20 +6,20 @@
 
 
 {% block body %}
-{% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for category, message in messages %}
-        <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
-            <strong>Message:</strong> {{message}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class=flashes>
+      {% for category, message in messages %}
+          <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+              <strong>Message:</strong> {{message}}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
     <h1 class='text-center'> Login Page</h1>
     <form autocomplete="off" method='POST' action='/login' class='my-5'>
         <div class="form-group">

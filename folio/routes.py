@@ -31,7 +31,6 @@ def login():
         
     return render_template('login.html')
 
-
 @app.route('/')
 @app.route('/register',methods=['GET','POST'])
 def register():
@@ -42,6 +41,14 @@ def register():
         firstname = request.form.get('firstname')
         lastname = request.form.get('lastname')
         confirm_password = request.form.get('confirm_password')
+
+         # Check if the email is already registered
+        databaseObj.cursor.execute('SELECT * FROM users WHERE email=%s', (email,))
+        existing_user = databaseObj.cursor.fetchone()
+
+        if existing_user:
+            flash('Email is already registered', 'danger')
+            return redirect('/register')
         
         if password == confirm_password:
             databaseObj.register(email,password,username,firstname,lastname)
