@@ -56,7 +56,7 @@ def register():
             return redirect('/login')
         
         else:
-            flash('Password did not match','error')
+            flash('Password did not match','danger')
             return redirect('/register')
         
     return render_template('register.html')
